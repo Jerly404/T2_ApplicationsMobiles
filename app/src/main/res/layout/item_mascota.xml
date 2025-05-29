@@ -5,7 +5,8 @@
     android:layout_height="wrap_content"
     card_view:cardCornerRadius="12dp"
     card_view:cardElevation="6dp"
-    android:layout_margin="8dp">
+    android:layout_margin="8dp"
+    android:backgroundTint="#AA000000"> <!-- Fondo semi-transparente -->
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -18,7 +19,8 @@
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:scaleType="centerCrop"
-            android:src="@drawable/placeholder_image" />
+            android:src="@drawable/placeholder_image"
+            android:background="@drawable/borde_neon" />
 
         <LinearLayout
             android:layout_width="0dp"
@@ -31,26 +33,28 @@
                 android:id="@+id/tvNombre"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Nombre de la mascota"
+                android:text="@string/nombre_de_la_mascota"
                 android:textStyle="bold"
-                android:textSize="16sp" />
+                android:textSize="16sp"
+                android:textColor="@color/neon_lime" />
 
             <TextView
                 android:id="@+id/tvDescripcion"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Descripción"
+                android:text="@string/descripci_ns"
                 android:textSize="14sp"
-                android:layout_marginTop="4dp" />
+                android:layout_marginTop="4dp"
+                android:textColor="@color/neon_cyan" />
 
             <TextView
                 android:id="@+id/tvPrecio"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="S/. 0.00"
-                android:textColor="@android:color/holo_green_dark"
+                android:text="@string/s_0_00"
                 android:textSize="14sp"
-                android:layout_marginTop="4dp" />
+                android:layout_marginTop="4dp"
+                android:textColor="@color/neon_orange" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -62,14 +66,18 @@
                     android:id="@+id/btnEditar"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Editar" />
+                    android:text="@string/editar"
+                    android:backgroundTint="@color/neon_lime"
+                    android:textColor="@color/black" />
 
                 <Button
                     android:id="@+id/btnEliminar"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Eliminar"
-                    android:layout_marginStart="8dp"/>
+                    android:text="@string/eliminar"
+                    android:layout_marginStart="8dp"
+                    android:backgroundTint="@color/orange_red"
+                    android:textColor="@color/white" />
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>

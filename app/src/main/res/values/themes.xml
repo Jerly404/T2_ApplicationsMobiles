@@ -1,8 +1,10 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
     <style name="Base.Theme.T2_CondorLunaHimerJerly" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <!-- Establecer color principal -->
+        <item name="colorPrimary">@color/neon_lime</item>
+        <item name="colorPrimaryVariant">@color/neon_green</item> <!-- Variante opcional -->
+        <item name="colorOnPrimary">@color/neon_lime</item> <!-- Texto sobre el color primario -->
     </style>
 
     <style name="Theme.T2_CondorLunaHimerJerly" parent="Base.Theme.T2_CondorLunaHimerJerly" />

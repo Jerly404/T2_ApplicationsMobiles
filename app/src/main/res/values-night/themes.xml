@@ -1,7 +1,10 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
+    <!-- Base application theme (modo oscuro). -->
     <style name="Base.Theme.T2_CondorLunaHimerJerly" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your dark theme here. -->
-        <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+        <!-- Establecer color principal en modo oscuro -->
+        <item name="colorPrimary">@color/neon_lime</item>
+        <item name="colorPrimaryVariant">@color/neon_green</item> <!-- Variante opcional -->
+        <item name="colorOnPrimary">@color/neon_lime</item> <!-- Texto sobre colorPrimario -->
     </style>
+
 </resources>

@@ -44,7 +44,7 @@ class MascotaRepository(
         }
     }
 
-    // ✅ Esta función ya no necesita parámetro porque usa el usuario actual
+    // Esta función ya no necesita parámetro porque usa el usuario actual
     suspend fun getUserPets(): Result<List<Mascota>> {
         return try {
             val currentUserId = firebaseAuth.currentUser?.uid

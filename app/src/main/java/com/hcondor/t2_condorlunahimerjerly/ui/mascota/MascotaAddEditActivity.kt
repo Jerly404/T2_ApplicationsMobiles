@@ -42,7 +42,7 @@ class MascotaAddEditActivity : AppCompatActivity() {
     private lateinit var priceEditText: EditText
     private lateinit var imageUrlEditText: EditText
 
-    // ✅ Manejador moderno para selección de imágenes
+    //  Manejador moderno para selección de imágenes
     private val pickImageLauncher = registerForActivityResult(ActivityResultContracts.GetContent()) { uri: Uri? ->
         if (uri != null) {
             imageUri = uri
@@ -90,7 +90,7 @@ class MascotaAddEditActivity : AppCompatActivity() {
         }
     }
 
-    // ✅ Subir imagen a Firebase Storage y obtener URL pública
+    //  Subir imagen a Firebase Storage y obtener URL pública
     private fun uploadImageToFirebase(uri: Uri, name: String, description: String, price: Int) {
         val storageRef = FirebaseStorage.getInstance().reference
         val imageRef = storageRef.child("mascotas/${UUID.randomUUID()}.jpg")
@@ -110,7 +110,7 @@ class MascotaAddEditActivity : AppCompatActivity() {
             }
     }
 
-    // ✅ Guardar datos de mascota en Firestore vía ViewModel
+    //  Guardar datos de mascota en Firestore vía ViewModel
     private fun savePetData(name: String, description: String, price: Int, imageUrl: String) {
         val mascota = Mascota(
             name = name,
