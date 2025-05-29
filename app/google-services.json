@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "878755517212",
+    "project_id": "hcondort2",
+    "storage_bucket": "hcondort2.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:878755517212:android:00176650d2e0e2103fa0d9",
+        "android_client_info": {
+          "package_name": "com.hcondor.t2_condorlunahimerjerly"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD3Z_8cksgHg4h-qW7ZYloekgkNTV63oaI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

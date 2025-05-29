@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">T2_CondorLunaHimerJerly</string>
+    <!-- Cambiar el formato a %1$d para enteros -->
+    <string name="precio_formato">S/ %1$d</string>
+</resources>
