@@ -3,6 +3,7 @@ package com.hcondor.t2_condorlunahimerjerly.ui.mascota
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.hcondor.t2_condorlunahimerjerly.data.model.Mascota
 
@@ -11,8 +12,14 @@ class MascotaListViewModel : ViewModel() {
     private val _mascotas = MutableLiveData<List<Mascota>>()
     val mascotas: LiveData<List<Mascota>> = _mascotas
 
+    private val firestore = FirebaseFirestore.getInstance()
+    private val firebaseAuth = FirebaseAuth.getInstance()
+
     fun obtenerMascotas() {
-        FirebaseFirestore.getInstance().collection("mascotas")
+        val userId = firebaseAuth.currentUser?.uid ?: return
+
+        firestore.collection("mascotas")
+            .whereEqualTo("ownerId", userId) // 🔍 Solo las del usuario
             .get()
             .addOnSuccessListener { result ->
                 val listaMascotas = result.map { document ->
@@ -33,11 +40,11 @@ class MascotaListViewModel : ViewModel() {
     }
 
     fun eliminarMascota(mascotaId: String) {
-        FirebaseFirestore.getInstance().collection("mascotas")
+        firestore.collection("mascotas")
             .document(mascotaId)
             .delete()
             .addOnSuccessListener {
-                obtenerMascotas() // Refrescar la lista
+                obtenerMascotas() // 🔁 Refrescar después de borrar
             }
             .addOnFailureListener {
                 // Manejo de errores opcional

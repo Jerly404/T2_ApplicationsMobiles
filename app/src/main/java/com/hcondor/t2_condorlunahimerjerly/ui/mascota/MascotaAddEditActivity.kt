@@ -28,12 +28,13 @@ class MascotaAddEditActivity : AppCompatActivity() {
 
     private val mascotaAddEditViewModel: MascotaAddEditViewModel by viewModels {
         MascotaAddEditViewModelFactory(
-            mascotaRepository = MascotaRepository(firestore),
+            mascotaRepository = MascotaRepository(firestore, firebaseAuth),
             authRepository = AuthRepository(firebaseAuth, firestore),
             firestore = firestore,
             firebaseAuth = firebaseAuth
         )
     }
+
 
     private lateinit var imageView: ImageView
     private lateinit var nameEditText: EditText
