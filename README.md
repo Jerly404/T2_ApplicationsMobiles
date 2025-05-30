@@ -56,5 +56,3 @@ Este proyecto consiste en una aplicación Android desarrollada en Android Studio
 - **Autenticación**: Uso de `FirebaseAuth` para login y registro
 - **CRUD**: Uso de `FirebaseFirestore` para operaciones con documentos
 - **Imágenes**: Subida y obtención desde `Firebase Storage`
-
-## 🧩 Estructura del proyecto
