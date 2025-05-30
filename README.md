@@ -44,8 +44,6 @@ Este proyecto consiste en una aplicación Android desarrollada en Android Studio
 |------------------|--------------------|----------------------|
 | ![Login](app/capturas/login.png) | ![Lista](app/capturas/lista.png) | ![Editar](app/capturas/editar.png) |
 
-> Asegúrate de colocar las imágenes dentro de una carpeta `/capturas` en tu repositorio.
-
 ## 🧪 Pasos seguidos para la implementación
 
 ### 🔗 Integración con Firebase
