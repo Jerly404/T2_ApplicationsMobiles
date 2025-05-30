@@ -6,16 +6,16 @@
     android:orientation="vertical"
     android:gravity="center"
     android:padding="16dp"
-    android:background="@color/material_dynamic_neutral95"
+    android:background="@drawable/background_add"
     tools:context=".ui.auth.RegisterActivity">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Crear Nueva Cuenta"
+        android:text="@string/crear_nueva_cuenta"
         android:textSize="32sp"
         android:textStyle="bold"
-        android:textColor="@color/material_dynamic_neutral_variant10"
+        android:textColor="@color/neon_lime"
         android:layout_marginBottom="32dp" />
 
     <com.google.android.material.textfield.TextInputLayout
@@ -28,17 +28,17 @@
         app:boxCornerRadiusTopEnd="8dp"
         app:boxCornerRadiusTopStart="8dp"
         app:startIconDrawable="@drawable/ic_email"
-        app:hintTextColor="@color/material_dynamic_neutral_variant30"
-        app:boxStrokeColor="@color/material_dynamic_neutral_variant30"
-        android:hint="Correo Electrónico">
+        app:hintTextColor="@color/neon_mint"
+        app:boxStrokeColor="@color/neon_teal"
+        android:hint="@string/correo_electr_ni">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etEmailRegister"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textEmailAddress"
-            android:textColor="@color/material_dynamic_neutral_variant10"
-            android:background="@color/material_dynamic_neutral90"
+            android:textColor="@color/neon_mint"
+            android:backgroundTint="@color/black"
             android:padding="16dp"
             android:singleLine="true" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -54,17 +54,17 @@
         app:boxCornerRadiusTopStart="8dp"
         app:startIconDrawable="@drawable/ic_lock"
         app:endIconMode="password_toggle"
-        app:hintTextColor="@color/material_dynamic_neutral_variant30"
-        app:boxStrokeColor="@color/material_dynamic_neutral_variant30"
-        android:hint="Contraseña">
+        app:hintTextColor="@color/neon_mint"
+        app:boxStrokeColor="@color/neon_teal"
+        android:hint="@string/contrase_as">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etPasswordRegister"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPassword"
-            android:textColor="@color/material_dynamic_neutral_variant10"
-            android:background="@color/material_dynamic_neutral90"
+            android:textColor="@color/neon_mint"
+            android:backgroundTint="@color/black"
             android:padding="16dp"
             android:singleLine="true" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -80,17 +80,17 @@
         app:boxCornerRadiusTopStart="8dp"
         app:startIconDrawable="@drawable/ic_lock"
         app:endIconMode="password_toggle"
-        app:hintTextColor="@color/material_dynamic_neutral_variant30"
-        app:boxStrokeColor="@color/material_dynamic_neutral_variant30"
-        android:hint="Confirmar Contraseña">
+        app:hintTextColor="@color/neon_mint"
+        app:boxStrokeColor="@color/neon_teal"
+        android:hint="@string/confirmar_contrase_a">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etConfirmPasswordRegister"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPassword"
-            android:textColor="@color/material_dynamic_neutral_variant10"
-            android:background="@color/material_dynamic_neutral90"
+            android:textColor="@color/neon_mint"
+            android:backgroundTint="@color/black"
             android:padding="16dp"
             android:singleLine="true" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -99,9 +99,9 @@
         android:id="@+id/btnRegister"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Registrarse"
-        android:backgroundTint="@color/material_dynamic_primary40"
-        android:textColor="@android:color/white"
+        android:text="@string/registrarse"
+        android:backgroundTint="@color/neon_lime"
+        android:textColor="@color/neon_orange"
         android:padding="12dp"
         android:textSize="18sp"
         android:textStyle="bold"
@@ -112,13 +112,11 @@
         android:id="@+id/tvLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="¿Ya tienes una cuenta? Inicia sesión"
-        android:textColor="@color/material_dynamic_primary40"
+        android:text="@string/ya_tienes_una_cuenta_inicia_sesi_n"
+        android:textColor="@color/neon_lime"
         android:textSize="16sp"
         android:clickable="true"
         android:focusable="true"
         android:padding="8dp"
-        android:height="48dp"
-        />
-
+        android:height="48dp" />
 </LinearLayout>

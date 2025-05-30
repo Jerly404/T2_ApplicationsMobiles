@@ -150,7 +150,7 @@ class MascotaAddEditActivity : AppCompatActivity() {
             description = description,
             price = price,
             imageUrl = imageUrl,
-            tipo = tipo // nuevo campo tipo
+            tipo = tipo
         )
 
         mascotaAddEditViewModel.savePet(mascota)

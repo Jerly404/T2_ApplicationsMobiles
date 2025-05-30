@@ -19,7 +19,7 @@ class MascotaListViewModel : ViewModel() {
         val userId = firebaseAuth.currentUser?.uid ?: return
 
         firestore.collection("mascotas")
-            .whereEqualTo("ownerId", userId) // 🔍 Solo las del usuario
+            .whereEqualTo("ownerId", userId)
             .get()
             .addOnSuccessListener { result ->
                 val listaMascotas = result.map { document ->
@@ -29,15 +29,17 @@ class MascotaListViewModel : ViewModel() {
                         description = document.getString("description") ?: "",
                         price = (document.getDouble("price") ?: 0.0).toInt(),
                         imageUrl = document.getString("imageUrl") ?: "",
-                        ownerId = document.getString("ownerId") ?: ""
+                        ownerId = document.getString("ownerId") ?: "",
+                        tipo = document.getString("tipo") ?: ""
                     )
                 }
                 _mascotas.value = listaMascotas
             }
             .addOnFailureListener {
-                _mascotas.value = emptyList() // Limpia la lista si hay error
+                _mascotas.value = emptyList()
             }
     }
+
 
     fun eliminarMascota(mascotaId: String) {
         firestore.collection("mascotas")
