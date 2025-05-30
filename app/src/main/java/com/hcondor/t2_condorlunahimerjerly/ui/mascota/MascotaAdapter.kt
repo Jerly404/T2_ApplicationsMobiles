@@ -28,6 +28,14 @@ class MascotaAdapter(
         holder.binding.tvDescripcion.text = mascota.description
         holder.binding.tvPrecio.text = holder.itemView.context.getString(R.string.precio_formato, mascota.price)
 
+        // Validación segura para tipo
+        val tipoTexto = if (mascota.tipo.isNotBlank()) {
+            holder.itemView.context.getString(R.string.tipo_formato, mascota.tipo)
+        } else {
+            "Tipo: No especificado"
+        }
+        holder.binding.tvTipo.text = tipoTexto
+
         Glide.with(holder.itemView.context)
             .load(mascota.imageUrl)
             .placeholder(R.drawable.placeholder_image)

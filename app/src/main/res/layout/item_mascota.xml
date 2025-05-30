@@ -17,7 +17,7 @@
         <ImageView
             android:id="@+id/imageMascota"
             android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_height="120dp"
             android:scaleType="centerCrop"
             android:src="@drawable/placeholder_image"
             android:background="@drawable/borde_neon" />
@@ -37,6 +37,16 @@
                 android:textStyle="bold"
                 android:textSize="16sp"
                 android:textColor="@color/neon_lime" />
+
+            <!-- NUEVO: Tipo de Mascota -->
+            <TextView
+                android:id="@+id/tvTipo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tipo: Perro"
+                android:textSize="14sp"
+                android:layout_marginTop="2dp"
+                android:textColor="@color/neon_purple" />
 
             <TextView
                 android:id="@+id/tvDescripcion"

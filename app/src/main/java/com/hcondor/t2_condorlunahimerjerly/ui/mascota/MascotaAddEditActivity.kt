@@ -1,12 +1,9 @@
 package com.hcondor.t2_condorlunahimerjerly.ui.mascota
 
-import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.widget.Button
-import android.widget.EditText
-import android.widget.ImageView
-import android.widget.Toast
+import android.util.Log
+import android.widget.*
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -25,6 +22,9 @@ class MascotaAddEditActivity : AppCompatActivity() {
     private val firebaseAuth = FirebaseAuth.getInstance()
     private val firestore = FirebaseFirestore.getInstance()
     private var imageUri: Uri? = null
+    private var mascotaExistente: Mascota? = null
+
+    private lateinit var tipoSpinner: Spinner
 
     private val mascotaAddEditViewModel: MascotaAddEditViewModel by viewModels {
         MascotaAddEditViewModelFactory(
@@ -35,14 +35,12 @@ class MascotaAddEditActivity : AppCompatActivity() {
         )
     }
 
-
     private lateinit var imageView: ImageView
     private lateinit var nameEditText: EditText
     private lateinit var descriptionEditText: EditText
     private lateinit var priceEditText: EditText
     private lateinit var imageUrlEditText: EditText
 
-    //  Manejador moderno para selección de imágenes
     private val pickImageLauncher = registerForActivityResult(ActivityResultContracts.GetContent()) { uri: Uri? ->
         if (uri != null) {
             imageUri = uri
@@ -56,42 +54,76 @@ class MascotaAddEditActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_mascota_add_edit)
 
-        // Inicializa vistas
         imageView = findViewById(R.id.imageMascota)
         nameEditText = findViewById(R.id.etNombre)
         descriptionEditText = findViewById(R.id.etDescripcion)
         priceEditText = findViewById(R.id.etPrecio)
         imageUrlEditText = findViewById(R.id.etImagenUrl)
+        tipoSpinner = findViewById(R.id.spinnerTipo)
+
         val seleccionarImagenBtn = findViewById<Button>(R.id.btnSeleccionarImagen)
         val saveButton = findViewById<Button>(R.id.btnGuardar)
 
-        // Selección de imagen desde galería
+        // Configurar Spinner con opciones de tipo mascota
+        val tiposMascotas = resources.getStringArray(R.array.tipos_mascota)
+        val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, tiposMascotas)
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        tipoSpinner.adapter = adapter
+
+        val mascotaId = intent.getStringExtra("mascota_id")
+        if (mascotaId != null) {
+            mascotaAddEditViewModel.cargarMascotaPorId(mascotaId)
+        }
+
+        mascotaAddEditViewModel.mascota.observe(this) { mascota ->
+            mascota?.let {
+                mascotaExistente = it
+                nameEditText.setText(it.name)
+                descriptionEditText.setText(it.description)
+                priceEditText.setText(it.price.toString())
+                imageUrlEditText.setText(it.imageUrl)
+                Glide.with(this).load(it.imageUrl).into(imageView)
+
+                // Buscar posición ignorando mayúsculas
+                val pos = tiposMascotas.indexOfFirst { tipo -> tipo.equals(it.tipo, ignoreCase = true) }
+                if (pos >= 0) {
+                    tipoSpinner.setSelection(pos)
+                } else {
+                    Log.d("MascotaAddEdit", "Tipo no encontrado en el spinner")
+                }
+            }
+        }
+
+
         seleccionarImagenBtn.setOnClickListener {
             pickImageLauncher.launch("image/*")
         }
 
-        // Guardar mascota
         saveButton.setOnClickListener {
             val name = nameEditText.text.toString().trim()
             val description = descriptionEditText.text.toString().trim()
             val price = priceEditText.text.toString().toIntOrNull() ?: 0
-            val imageUrl = imageUrlEditText.text.toString().trim()
+            val imageUrlFromInput = imageUrlEditText.text.toString().trim()
+            val tipo = tipoSpinner.selectedItem.toString()
 
             if (name.isEmpty() || description.isEmpty()) {
                 showToast("Por favor completa todos los campos obligatorios")
                 return@setOnClickListener
             }
 
-            when {
-                imageUri != null -> uploadImageToFirebase(imageUri!!, name, description, price)
-                imageUrl.isNotEmpty() -> savePetData(name, description, price, imageUrl)
-                else -> showToast("Selecciona una imagen o ingresa una URL")
+            if (imageUri != null) {
+                uploadImageToFirebase(imageUri!!, name, description, price, tipo)
+            } else if (imageUrlFromInput.isNotEmpty()) {
+                guardarMascota(name, description, price, imageUrlFromInput, tipo)
+            } else if (mascotaExistente != null) {
+                guardarMascota(name, description, price, mascotaExistente!!.imageUrl, tipo)
+            } else {
+                showToast("Selecciona una imagen o ingresa una URL")
             }
         }
     }
 
-    //  Subir imagen a Firebase Storage y obtener URL pública
-    private fun uploadImageToFirebase(uri: Uri, name: String, description: String, price: Int) {
+    private fun uploadImageToFirebase(uri: Uri, name: String, description: String, price: Int, tipo: String) {
         val storageRef = FirebaseStorage.getInstance().reference
         val imageRef = storageRef.child("mascotas/${UUID.randomUUID()}.jpg")
 
@@ -103,24 +135,26 @@ class MascotaAddEditActivity : AppCompatActivity() {
                 imageRef.downloadUrl
             }
             .addOnSuccessListener { downloadUri ->
-                savePetData(name, description, price, downloadUri.toString())
+                guardarMascota(name, description, price, downloadUri.toString(), tipo)
             }
             .addOnFailureListener { e ->
                 showToast("Error al subir la imagen: ${e.message}")
             }
     }
 
-    //  Guardar datos de mascota en Firestore vía ViewModel
-    private fun savePetData(name: String, description: String, price: Int, imageUrl: String) {
+    private fun guardarMascota(name: String, description: String, price: Int, imageUrl: String, tipo: String) {
         val mascota = Mascota(
+            id = mascotaExistente?.id ?: "",
+            ownerId = firebaseAuth.currentUser?.uid.orEmpty(),
             name = name,
             description = description,
             price = price,
             imageUrl = imageUrl,
-            ownerId = firebaseAuth.currentUser?.uid ?: ""
+            tipo = tipo // nuevo campo tipo
         )
+
         mascotaAddEditViewModel.savePet(mascota)
-        showToast("Mascota guardada correctamente")
+        showToast("Mascota ${if (mascotaExistente == null) "registrada" else "actualizada"} correctamente")
         finish()
     }
 

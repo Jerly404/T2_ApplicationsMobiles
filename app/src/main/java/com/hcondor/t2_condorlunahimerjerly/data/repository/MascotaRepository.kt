@@ -12,6 +12,7 @@ class MascotaRepository(
 
     private val petsCollection = firestore.collection("pets")
 
+    // Agrega una mascota al Firestore con un nuevo ID y el ID del usuario actual como ownerId
     suspend fun addPet(pet: Mascota): Result<Unit> {
         return try {
             val currentUserId = firebaseAuth.currentUser?.uid
@@ -20,14 +21,19 @@ class MascotaRepository(
             val newDoc = petsCollection.document()
             val petWithIdAndOwner = pet.copy(id = newDoc.id, ownerId = currentUserId)
             newDoc.set(petWithIdAndOwner).await()
+
             Result.success(Unit)
         } catch (e: Exception) {
             Result.failure(e)
         }
     }
 
+    // Actualiza la mascota existente (el documento se sobrescribe con el nuevo contenido)
     suspend fun updatePet(pet: Mascota): Result<Unit> {
         return try {
+            if (pet.id.isBlank()) {
+                return Result.failure(Exception("ID de mascota inválido"))
+            }
             petsCollection.document(pet.id).set(pet).await()
             Result.success(Unit)
         } catch (e: Exception) {
@@ -35,8 +41,12 @@ class MascotaRepository(
         }
     }
 
+    // Elimina la mascota por ID
     suspend fun deletePet(petId: String): Result<Unit> {
         return try {
+            if (petId.isBlank()) {
+                return Result.failure(Exception("ID de mascota inválido"))
+            }
             petsCollection.document(petId).delete().await()
             Result.success(Unit)
         } catch (e: Exception) {
@@ -44,7 +54,7 @@ class MascotaRepository(
         }
     }
 
-    // Esta función ya no necesita parámetro porque usa el usuario actual
+    // Obtiene la lista de mascotas del usuario autenticado
     suspend fun getUserPets(): Result<List<Mascota>> {
         return try {
             val currentUserId = firebaseAuth.currentUser?.uid
@@ -52,7 +62,8 @@ class MascotaRepository(
 
             val snapshot = petsCollection
                 .whereEqualTo("ownerId", currentUserId)
-                .get().await()
+                .get()
+                .await()
 
             val pets = snapshot.toObjects(Mascota::class.java)
             Result.success(pets)

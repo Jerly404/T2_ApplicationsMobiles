@@ -8,5 +8,6 @@ data class Mascota(
     val description: String = "",
     val imageUrl: String = "",
     val price: Int = 0,
-    val ownerId: String = ""
+    val ownerId: String = "",
+    val tipo: String = ""
 )

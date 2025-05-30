@@ -44,7 +44,7 @@ class MascotaListViewModel : ViewModel() {
             .document(mascotaId)
             .delete()
             .addOnSuccessListener {
-                obtenerMascotas() // 🔁 Refrescar después de borrar
+                obtenerMascotas() //  Refrescar después de borrar
             }
             .addOnFailureListener {
                 // Manejo de errores opcional

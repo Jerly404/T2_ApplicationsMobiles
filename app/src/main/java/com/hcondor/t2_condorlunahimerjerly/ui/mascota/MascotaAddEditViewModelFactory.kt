@@ -12,13 +12,18 @@ class MascotaAddEditViewModelFactory(
     private val authRepository: AuthRepository,
     private val firestore: FirebaseFirestore,
     private val firebaseAuth: FirebaseAuth
-) : ViewModelProvider.NewInstanceFactory() {
+) : ViewModelProvider.Factory {
 
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        if (modelClass.isAssignableFrom(MascotaAddEditViewModel::class.java)) {
-            @Suppress("UNCHECKED_CAST")
-            return MascotaAddEditViewModel(mascotaRepository, authRepository, firestore, firebaseAuth) as T
+        return if (modelClass.isAssignableFrom(MascotaAddEditViewModel::class.java)) {
+            MascotaAddEditViewModel(
+                mascotaRepository,
+                authRepository,
+                firestore,
+                firebaseAuth
+            ) as T
+        } else {
+            throw IllegalArgumentException("Unknown ViewModel class: ${modelClass.name}")
         }
-        throw IllegalArgumentException("Unknown ViewModel class")
     }
 }

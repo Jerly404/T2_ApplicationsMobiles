@@ -86,6 +86,22 @@
                 android:textColor="@color/neon_orange"/>
         </com.google.android.material.textfield.TextInputLayout>
 
+        <TextView
+            android:id="@+id/tvTipo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=""
+        android:textColor="@color/neon_lime"
+        android:textSize="12sp"
+        android:layout_marginBottom="4dp"/>
+
+        <Spinner
+            android:id="@+id/spinnerTipo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:spinnerMode="dropdown"
+            android:backgroundTint="@color/neon_lime" />
+
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/tilPrecio"
             android:layout_width="match_parent"
