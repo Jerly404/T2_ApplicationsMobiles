@@ -42,9 +42,7 @@ Este proyecto consiste en una aplicación Android desarrollada en Android Studio
 
 | Inicio de sesión | Lista de registros | Edición de registro |
 |------------------|--------------------|----------------------|
-| ![Login](capturas/login.png) | ![Lista](capturas/lista.png) | ![Editar](capturas/editar.png) |
-
-> Asegúrate de colocar las imágenes dentro de una carpeta `/capturas` en tu repositorio.
+| ![Login](app/capturas/login.png) | ![Lista](app/capturas/lista.png) | ![Editar](app/capturas/editar.png) |
 
 ## 🧪 Pasos seguidos para la implementación
 
@@ -58,5 +56,3 @@ Este proyecto consiste en una aplicación Android desarrollada en Android Studio
 - **Autenticación**: Uso de `FirebaseAuth` para login y registro
 - **CRUD**: Uso de `FirebaseFirestore` para operaciones con documentos
 - **Imágenes**: Subida y obtención desde `Firebase Storage`
-
-## 🧩 Estructura del proyecto
