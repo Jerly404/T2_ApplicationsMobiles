@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="tipos_mascota">
+        <item>Perro</item>
+        <item>Gato</item>
+        <item>Monito</item> 
+        <item>Pájaro</item>
+        
+    </string-array>
+    <color name="black">#000000</color>
+    <color name="cyan">#00FFFF</color>
+    <color name="dark_gray">#1A1A1A</color>
+    <color name="magenta">#FF00FF</color>
+    <color name="medium_gray">#333333</color>
+    <color name="neon_blue">#1B03A3</color>
+    <color name="neon_cyan">#00FFF7</color>
+    <color name="neon_gold">#FFD700</color>
+    <color name="neon_green">#39FF14</color>
+    <color name="neon_indigo">#4B0082</color>
+    <color name="neon_lime">#BFFF00</color>
+    <color name="neon_magenta">#FF00FF</color>
+    <color name="neon_mint">#AAF0D1</color>
+    <color name="neon_orange">#FF5F1F</color>
+    <color name="neon_orchid">#DA70D6</color>
+    <color name="neon_pink">#FF6EC7</color>
+    <color name="neon_purple">#BF00FF</color>
+    <color name="neon_red">#FF073A</color>
+    <color name="neon_rose">#FF007F</color>
+    <color name="neon_salmon">#FF6E6E</color>
+    <color name="neon_teal">#00FFC6</color>
+    <color name="neon_turquoise">#40E0D0</color>
+    <color name="neon_violet">#8F00FF</color>
+    <color name="neon_yellow">#F7FF3C</color>
+    <color name="orange_red">#FF4500</color>
+    <color name="white">#FFFFFF</color>
+    <string name="app_name">T2_CondorLunaHimerJerly</string>
+    <string name="bienvenido">Bienvenido</string>
+    <string name="confirmar_contrase_a">Confirmar Contraseña</string>
+    <string name="contrase_a">Contraseña</string>
+    <string name="contrase_as">Contraseña</string>
+    <string name="correo_electr_ni">Correo Electrónico</string>
+    <string name="correo_electr_nico">Correo electrónico</string>
+    <string name="crear_nueva_cuenta">Crear Nueva Cuenta</string>
+    <string name="descripci_n">Descripción</string>
+    <string name="descripci_ns">Descripción</string>
+    <string name="editar">Editar</string>
+    <string name="eliminar">Eliminar</string>
+    <string name="gcm_defaultSenderId" translatable="false">878755517212</string>
+    <string name="google_api_key" translatable="false">AIzaSyD3Z_8cksgHg4h-qW7ZYloekgkNTV63oaI</string>
+    <string name="google_app_id" translatable="false">1:878755517212:android:00176650d2e0e2103fa0d9</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyD3Z_8cksgHg4h-qW7ZYloekgkNTV63oaI</string>
+    <string name="google_storage_bucket" translatable="false">hcondort2.firebasestorage.app</string>
+    <string name="guardar">Guardar</string>
+    <string name="iniciar_sesi_n">Iniciar Sesión</string>
+    <string name="no_tienes_una_cuenta_reg_strate_aqu">¿No tienes una cuenta? Regístrate aquí</string>
+    <string name="nombre">Nombre</string>
+    <string name="nombre_de_la_mascota">Nombre de la mascota</string>
+    <string name="o_ingresa_url_de_la_imagen">O ingresa URL de la imagen</string>
+    <string name="precio">Precio</string>
+    <string name="precio_formato">S/ %1$d</string>
+    <string name="project_id" translatable="false">hcondort2</string>
+    <string name="registrarse">Registrarse</string>
+    <string name="registro_de_mascota">Registro de Mascota</string>
+    <string name="s_0_00">S/. 0.00</string>
+    <string name="seleccionar_imagen">Seleccionar Imagen</string>
+    <string name="sesi_n_iniciada">These are my pets</string>
+    <string name="tipo_de_mascota">Tipo de mascota</string>
+    <string name="tipo_de_mascota_list">Tipo de Mascota</string>
+    <string name="tipo_formato">Tipo: %1$s</string>
+    <string name="tipo_perro">Tipo: Perro</string>
+    <string name="ya_tienes_una_cuenta_inicia_sesi_n">¿Ya tienes una cuenta? Inicia sesión</string>
+    <style name="Base.Theme.T2_CondorLunaHimerJerly" parent="Theme.Material3.DayNight.NoActionBar">
+        
+        <item name="colorPrimary">@color/neon_lime</item>
+        <item name="colorPrimaryVariant">@color/neon_green</item> 
+        <item name="colorOnPrimary">@color/neon_lime</item> 
+    </style>
+    <style name="Theme.T2_CondorLunaHimerJerly" parent="Base.Theme.T2_CondorLunaHimerJerly"/>
+</resources>

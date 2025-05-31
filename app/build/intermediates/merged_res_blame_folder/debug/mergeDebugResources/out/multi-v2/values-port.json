@@ -1,0 +1,19 @@
+{
+    "logs": [
+        {
+            "outputFile": "com.hcondor.t2_condorlunahimerjerly.app-mergeDebugResources-47:/values-port/values-port.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\Jerly\\.gradle\\caches\\8.11.1\\transforms\\c09dade21a686a2c4a397adb5f67fafc\\transformed\\appcompat-1.7.0\\res\\values-port\\values-port.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "55",
+                        "endOffsets": "106"
+                    }
+                }
+            ]
+        }
+    ]
+}

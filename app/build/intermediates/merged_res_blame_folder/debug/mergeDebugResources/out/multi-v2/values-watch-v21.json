@@ -1,0 +1,20 @@
+{
+    "logs": [
+        {
+            "outputFile": "com.hcondor.t2_condorlunahimerjerly.app-mergeDebugResources-47:/values-watch-v21/values-watch-v21.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\Jerly\\.gradle\\caches\\8.11.1\\transforms\\c09dade21a686a2c4a397adb5f67fafc\\transformed\\appcompat-1.7.0\\res\\values-watch-v21\\values-watch-v21.xml",
+                    "from": {
+                        "startLines": "2,6,10",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "55,271,499",
+                        "endLines": "5,9,13",
+                        "endColumns": "12,12,12",
+                        "endOffsets": "266,494,724"
+                    }
+                }
+            ]
+        }
+    ]
+}

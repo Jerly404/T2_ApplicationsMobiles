@@ -49,7 +49,7 @@ class MascotaListViewModel : ViewModel() {
                 obtenerMascotas() //  Refrescar después de borrar
             }
             .addOnFailureListener {
-                // Manejo de errores opcional
+
             }
     }
 }

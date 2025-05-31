@@ -1,0 +1,34 @@
+[
+    {
+        "merged": "C:\\Users\\Jerly\\.gradle\\daemon\\8.11.1\\com.hcondor.t2_condorlunahimerjerly.app-mergeDebugResources-48:\\layout\\item_mascota.xml",
+        "source": "C:\\Users\\Jerly\\.gradle\\daemon\\8.11.1\\com.hcondor.t2_condorlunahimerjerly.app-main-51:\\layout\\item_mascota.xml"
+    },
+    {
+        "merged": "com.hcondor.t2_condorlunahimerjerly.app-mergeDebugResources-48:/layout/activity_register.xml",
+        "source": "com.hcondor.t2_condorlunahimerjerly.app-main-51:/layout/activity_register.xml"
+    },
+    {
+        "merged": "C:\\Users\\Jerly\\.gradle\\daemon\\8.11.1\\com.hcondor.t2_condorlunahimerjerly.app-mergeDebugResources-48:\\layout\\activity_mascota_list.xml",
+        "source": "C:\\Users\\Jerly\\.gradle\\daemon\\8.11.1\\com.hcondor.t2_condorlunahimerjerly.app-main-51:\\layout\\activity_mascota_list.xml"
+    },
+    {
+        "merged": "C:\\Users\\Jerly\\.gradle\\daemon\\8.11.1\\com.hcondor.t2_condorlunahimerjerly.app-mergeDebugResources-48:\\layout\\activity_mascota_add_edit.xml",
+        "source": "C:\\Users\\Jerly\\.gradle\\daemon\\8.11.1\\com.hcondor.t2_condorlunahimerjerly.app-main-51:\\layout\\activity_mascota_add_edit.xml"
+    },
+    {
+        "merged": "C:\\Users\\Jerly\\.gradle\\daemon\\8.11.1\\com.hcondor.t2_condorlunahimerjerly.app-mergeDebugResources-48:\\layout\\activity_login.xml",
+        "source": "C:\\Users\\Jerly\\.gradle\\daemon\\8.11.1\\com.hcondor.t2_condorlunahimerjerly.app-main-51:\\layout\\activity_login.xml"
+    },
+    {
+        "merged": "com.hcondor.t2_condorlunahimerjerly.app-mergeDebugResources-48:/layout/activity_login.xml",
+        "source": "com.hcondor.t2_condorlunahimerjerly.app-main-51:/layout/activity_login.xml"
+    },
+    {
+        "merged": "C:\\Users\\Jerly\\.gradle\\daemon\\8.11.1\\com.hcondor.t2_condorlunahimerjerly.app-mergeDebugResources-48:\\layout\\activity_register.xml",
+        "source": "C:\\Users\\Jerly\\.gradle\\daemon\\8.11.1\\com.hcondor.t2_condorlunahimerjerly.app-main-51:\\layout\\activity_register.xml"
+    },
+    {
+        "merged": "C:\\Users\\Jerly\\.gradle\\daemon\\8.11.1\\com.hcondor.t2_condorlunahimerjerly.app-mergeDebugResources-48:\\layout\\activity_main.xml",
+        "source": "C:\\Users\\Jerly\\.gradle\\daemon\\8.11.1\\com.hcondor.t2_condorlunahimerjerly.app-main-51:\\layout\\activity_main.xml"
+    }
+]

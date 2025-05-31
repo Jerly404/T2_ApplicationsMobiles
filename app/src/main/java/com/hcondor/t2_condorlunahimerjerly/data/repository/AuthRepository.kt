@@ -34,15 +34,13 @@ class AuthRepository(
                 val userData = hashMapOf(
                     "email" to firebaseUser.email,
                     "createdAt" to System.currentTimeMillis()
-                    // Puedes añadir más campos de perfil aquí si es necesario
                 )
-                // Guarda el UID del usuario como ID del documento en la colección 'users'
                 firestore.collection("users").document(firebaseUser.uid).set(userData).await()
             }
-            Result.success(true) // Registro exitoso
+            Result.success(true)
         } catch (e: Exception) {
             e.printStackTrace()
-            Result.failure(e) // Fallo en el registro
+            Result.failure(e)
         }
     }
 
